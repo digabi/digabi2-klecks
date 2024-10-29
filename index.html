@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Klecks</title>
+  </head>
+  <body>
+    <script src="embed.js"></script>
+    <script type="text/javascript">
+      const config = new Map()
+      const path = () => `/wd/${encodeURIComponent(config.get('filename'))}`
+
+      async function getFile() {
+        const propfindResponse = await fetch(path(), { method: 'PROPFIND' })
+        if (propfindResponse.status !== 207) {
+          return undefined
+        }
+        return await fetch(path()).then(resp => resp.arrayBuffer())
+      }
+
+      async function onLoad() {
+        const args = new URLSearchParams(window.location.search)
+        config.set('filename', args.get('filename'))
+
+        const file = await getFile()
+        if (file) {
+          const project = await klecks.readPSD(file)
+          await klecks.openProject(project)
+        } else {
+          const width = 800
+          const height = 600
+          klecks.openProject({
+            width,
+            height,
+            layers: [
+              {
+                name: 'Background',
+                isVisible: true,
+                opacity: 1,
+                mixModeStr: 'source-over',
+                image: (() => {
+                  const canvas = document.createElement('canvas')
+                  canvas.width = width
+                  canvas.height = height
+                  const ctx = canvas.getContext('2d')
+                  ctx.save()
+                  ctx.fillStyle = '#fff'
+                  ctx.fillRect(0, 0, canvas.width, canvas.height)
+                  ctx.restore()
+                  return canvas
+                })()
+              }
+            ]
+          })
+        }
+      }
+
+      async function onSubmit(onSuccess, onError) {
+        const file = await klecks.getPSD()
+        await fetch(path(), { method: 'PUT', body: file })
+        onSuccess()
+      }
+
+      const klecks = new Klecks({ onSubmit })
+      window.addEventListener('load', onLoad)
+    </script>
+  </body>
+</html>
