@@ -8,7 +8,7 @@ RUN npm run lang:build
 RUN npm run build:embed
 RUN npm run build:help
 
-FROM nginx:1.27.2
+FROM nginx:1.27.2-alpine
 
 WORKDIR /app
 COPY --from=build-klecks /app/klecks/dist /public
