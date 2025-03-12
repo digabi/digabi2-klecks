@@ -1,3 +1,4 @@
 [submodule "klecks"]
 	path = klecks
 	url = https://github.com/mtreinik/klecks
+    branch = main
