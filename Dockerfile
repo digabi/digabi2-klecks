@@ -1,8 +1,15 @@
 FROM node:20.18.0-bookworm-slim AS build-klecks
 
+RUN apt update
+RUN apt install -y patch
+
 WORKDIR /app/klecks
 COPY klecks/package.json klecks/package-lock.json ./
 COPY klecks/src src
+
+COPY texts.patch .
+RUN patch -p1 < texts.patch
+
 RUN npm ci
 RUN npm run lang:build
 RUN npm run build:embed

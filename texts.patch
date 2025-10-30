@@ -1,0 +1,99 @@
+diff --git a/src/languages/_base-en.json5 b/src/languages/_base-en.json5
+index 6aeb1e8..a233e00 100644
+--- a/src/languages/_base-en.json5
++++ b/src/languages/_base-en.json5
+@@ -946,18 +946,18 @@ renaming keys across language files:
+     "value": 'You can backup your drawing.',
+   },
+ 
+-  "submit": "Submit",
++  "submit": "Save",
+   "submit-title": {
+     "hint": "tooltip when hovering \"Submit\" button",
+-    "value": "Submit Drawing"
++    "value": "Save Drawing"
+   },
+   "submit-prompt": {
+     "hint": "Dialog asking for confirmation",
+-    "value": "Submit drawing?"
++    "value": "Save drawing?"
+   },
+   "submit-submitting": {
+     "hint": "in the process of uploading",
+-    "value": "Submitting"
++    "value": "Saving"
+   },
+ 
+   "embed-init-loading": {
+diff --git a/src/languages/fi.json5 b/src/languages/fi.json5
+index dc649c7..103f646 100644
+--- a/src/languages/fi.json5
++++ b/src/languages/fi.json5
+@@ -1518,23 +1518,23 @@
+     value: 'Voit varmuuskopioida kuvan.'
+   },
+   submit: {
+-    original: 'Submit',
+-    value: 'Lähetä'
++    original: 'Save',
++    value: 'Tallenna'
+   },
+   'submit-title': {
+     hint: 'tooltip when hovering "Submit" button',
+-    original: 'Submit Drawing',
+-    value: 'Lähetä kuva'
++    original: 'Save Drawing',
++    value: 'Tallenna kuva'
+   },
+   'submit-prompt': {
+     hint: 'Dialog asking for confirmation',
+-    original: 'Submit drawing?',
+-    value: 'Lähetetäänkö kuva?'
++    original: 'Save drawing?',
++    value: 'Tallennetaanko kuva?'
+   },
+   'submit-submitting': {
+     hint: 'in the process of uploading',
+-    original: 'Submitting',
+-    value: 'Lähetetään'
++    original: 'Saving',
++    value: 'Tallennetaan'
+   },
+   'embed-init-loading': {
+     hint: 'when opening the app',
+diff --git a/src/languages/sv.json5 b/src/languages/sv.json5
+index 5c6582a..7dbcecb 100644
+--- a/src/languages/sv.json5
++++ b/src/languages/sv.json5
+@@ -1518,23 +1518,23 @@
+     value: 'Du kan göra en backup av din bild.'
+   },
+   submit: {
+-    original: 'Submit',
+-    value: 'Skicka in'
++    original: 'Save',
++    value: 'Spara'
+   },
+   'submit-title': {
+     hint: 'tooltip when hovering "Submit" button',
+-    original: 'Submit Drawing',
+-    value: 'Skicka in bild'
++    original: 'Save Drawing',
++    value: 'Spara bild'
+   },
+   'submit-prompt': {
+     hint: 'Dialog asking for confirmation',
+-    original: 'Submit drawing?',
+-    value: 'Vill du skicka in den här bilden?'
++    original: 'Save drawing?',
++    value: 'Vill du spara den här bilden?'
+   },
+   'submit-submitting': {
+     hint: 'in the process of uploading',
+-    original: 'Submitting',
+-    value: 'Skickar in'
++    original: 'Saving',
++    value: 'Sparar'
+   },
+   'embed-init-loading': {
+     hint: 'when opening the app',
