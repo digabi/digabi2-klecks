@@ -11,9 +11,9 @@ COPY texts.patch .
 RUN patch -p1 < texts.patch
 
 RUN npm ci
+RUN npm run icon:build
 RUN npm run lang:build
 RUN npm run build:embed
-RUN npm run build:help
 
 FROM nginx:1.27.2-alpine
 
